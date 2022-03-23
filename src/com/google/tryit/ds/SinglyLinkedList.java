@@ -40,8 +40,8 @@ public class SinglyLinkedList {
 		SinglyLinkedList rest;
 
 			/* empty list */
-			//if (list == null)
-			//return;
+			if (list == null)
+			return;
 
 			first = list.head;
 			//rest = first;
