@@ -1,9 +1,9 @@
 package com.google.tryit.ds;
 
 public class SinglyLinkedListInt {
-    static class Node {
-        int value;
-        SinglyLinkedListInt.Node next;
+    public static class Node {
+        public int value;
+        public SinglyLinkedListInt.Node next;
 
         Node(int d) {
             value = d;
@@ -11,7 +11,7 @@ public class SinglyLinkedListInt {
         }
     }
 
-    SinglyLinkedListInt.Node head;
+    public SinglyLinkedListInt.Node head;
 
     public static SinglyLinkedListInt insertNode(SinglyLinkedListInt list, int data) {
         SinglyLinkedListInt.Node newNode = new SinglyLinkedListInt.Node(data);
@@ -29,10 +29,12 @@ public class SinglyLinkedListInt {
     }
 
     public static void printNode(SinglyLinkedListInt list) {
-        while (list.head != null) {
-            System.out.println(list.head.value);
-            list.head = list.head.next;
+        SinglyLinkedListInt printNode = list;
+        while (printNode.head != null) {
+            System.out.print(printNode.head.value+",");
+            printNode.head = printNode.head.next;
         }
+        System.out.println();
     }
     public static void reverseList(SinglyLinkedListInt list) {
         SinglyLinkedListInt.Node first;

@@ -14,24 +14,38 @@ public class MergeSortedLinkedList {
 
             firstSortedList = firstSortedList.insertNode(firstSortedList, firstArrayElements[i]);
         }
-        firstSortedList.printNode(firstSortedList);
+    //    firstSortedList.printNode(firstSortedList);
         for (int i = 0; i < seondArrayElements.length; i++) {
         secondSortedList = secondSortedList.insertNode(firstSortedList, seondArrayElements[i]);
         }
-        secondSortedList.printNode(secondSortedList);
+    //    secondSortedList.printNode(secondSortedList);
         mergeSortList = mergeSortList(firstSortedList,secondSortedList);
         mergeSortList.printNode(mergeSortList);
     }
 
     private static SinglyLinkedListInt mergeSortList(SinglyLinkedListInt firstSortedList, SinglyLinkedListInt secondSortedList) {
-        if(firstSortedList==null)
-        {
-            return firstSortedList;
+        SinglyLinkedListInt mergedSortList = new SinglyLinkedListInt();
+        SinglyLinkedListInt tempSortList = new SinglyLinkedListInt();
+        while (firstSortedList.head != null || secondSortedList.head!=null ) {
+            if (firstSortedList.head == null) {
+                return firstSortedList;
+            } else if (secondSortedList.head == null) {
+                return secondSortedList;
+            }
+            if (firstSortedList.head.value <secondSortedList.head.value)
+            {
+                tempSortList.head = firstSortedList.head;
+                firstSortedList.head = firstSortedList.head.next;
+            }
+            else
+            {
+                tempSortList.head = secondSortedList.head;
+                secondSortedList.head = secondSortedList.head.next;
+            }
+            mergedSortList.head = tempSortList.head;
+            mergedSortList.head.next = mergedSortList.head;
+            tempSortList.head.next = tempSortList.head;
         }
-        else if (secondSortedList==null)
-        {
-            return secondSortedList;
-        }
-        return firstSortedList;
+        return mergedSortList;
     }
 }
