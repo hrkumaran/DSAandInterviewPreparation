@@ -5,7 +5,7 @@ public class SinglyLinkedListInt {
         public int value;
         public SinglyLinkedListInt.Node next;
 
-        Node(int d) {
+        public Node(int d) {
             value = d;
             next = null;
         }

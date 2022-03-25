@@ -19,33 +19,82 @@ public class MergeSortedLinkedList {
         secondSortedList = secondSortedList.insertNode(firstSortedList, seondArrayElements[i]);
         }
     //    secondSortedList.printNode(secondSortedList);
-        mergeSortList = mergeSortList(firstSortedList,secondSortedList);
+                mergeSortList.head = mergeSortList(firstSortedList.head, secondSortedList.head);
+        System.out.println("Result=");
         mergeSortList.printNode(mergeSortList);
     }
 
-    private static SinglyLinkedListInt mergeSortList(SinglyLinkedListInt firstSortedList, SinglyLinkedListInt secondSortedList) {
-        SinglyLinkedListInt mergedSortList = new SinglyLinkedListInt();
-        SinglyLinkedListInt tempSortList = new SinglyLinkedListInt();
-        while (firstSortedList.head != null || secondSortedList.head!=null ) {
-            if (firstSortedList.head == null) {
-                return firstSortedList;
-            } else if (secondSortedList.head == null) {
-                return secondSortedList;
+  /*  private static SinglyLinkedListInt mergeSortList(SinglyLinkedListInt.Node firstSortedNode, SinglyLinkedListInt.Node secondSortedNode) {
+        SinglyLinkedListInt mergedSortNode = new SinglyLinkedListInt();
+        while (firstSortedNode != null || secondSortedNode!=null ) {
+            SinglyLinkedListInt.Node tempSortNode = new SinglyLinkedListInt.Node(0);
+            if (firstSortedNode == null) {
+     //           return firstSortedNode;
+            } else if (secondSortedNode == null) {
+     //           return secondSortedNode;
             }
-            if (firstSortedList.head.value <secondSortedList.head.value)
+            if (firstSortedNode.value <firstSortedNode.value)
             {
-                tempSortList.head = firstSortedList.head;
-                firstSortedList.head = firstSortedList.head.next;
+                tempSortNode = firstSortedNode;
+                firstSortedNode.next= firstSortedNode;
             }
             else
             {
-                tempSortList.head = secondSortedList.head;
-                secondSortedList.head = secondSortedList.head.next;
+                tempSortNode = secondSortedNode;
+                secondSortedNode.next = secondSortedNode;
             }
-            mergedSortList.head = tempSortList.head;
-            mergedSortList.head.next = mergedSortList.head;
-            tempSortList.head.next = tempSortList.head;
+            mergedSortNode.head = tempSortNode;
+            mergedSortNode.head.next = tempSortNode.next;
+            tempSortNode.next = tempSortNode;
         }
-        return mergedSortList;
+        return mergedSortNode;
+    }*/
+
+    static SinglyLinkedListInt.Node mergeSortList(SinglyLinkedListInt.Node headA, SinglyLinkedListInt.Node headB)
+    {
+
+    /* a dummy first node to
+       hang the result on */
+        SinglyLinkedListInt.Node dummyNode = new SinglyLinkedListInt.Node(0);
+
+    /* tail points to the
+    last result node */
+        SinglyLinkedListInt.Node tail = dummyNode;
+        while(true)
+        {
+
+        /* if either list runs out,
+        use the other list */
+            if(headA == null)
+            {
+                tail.next = headB;
+                break;
+            }
+            if(headB == null)
+            {
+                tail.next = headA;
+                break;
+            }
+
+        /* Compare the data of the two
+        lists whichever lists' data is
+        smaller, append it into tail and
+        advance the head to the next Node
+        */
+            if(headA.value <= headB.value)
+            {
+                tail.next = headA;
+                headA = headA.next;
+            }
+            else
+            {
+                tail.next = headB;
+                headB = headB.next;
+            }
+
+            /* Advance the tail */
+            tail = tail.next;
+        }
+        return dummyNode.next;
     }
 }
