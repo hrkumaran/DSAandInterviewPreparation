@@ -35,27 +35,20 @@ public class SinglyLinkedList {
 			list.head = list.head.next;
 		}
 	}
-	public static void reverseList(SinglyLinkedList list) {
+	public static SinglyLinkedList.Node reverseList(SinglyLinkedList.Node list) {
 		SinglyLinkedList.Node first;
 		SinglyLinkedList rest;
 
-			/* empty list */
-			if (list == null)
-			return;
+		/* empty list */
+		if (list == null || list.next == null)
+		{
+			return list;
+		}
 
-			first = list.head;
-			//rest = first;
-
-			/* List has only one node */
-		//	if (rest == null)
-		//		return;
-
-			/* reverse the rest list and put the first element at the last */
-		//	reverseList(rest);
-			first.next.next = first;
-
-			first.next = null;
-
+		SinglyLinkedList.Node returnNode = reverseList(list.next);
+		list.next.next = list;
+		list.next = null;
+		return returnNode;
 			/* change the head pointer */
  		//	list.head = rest;
 		}
