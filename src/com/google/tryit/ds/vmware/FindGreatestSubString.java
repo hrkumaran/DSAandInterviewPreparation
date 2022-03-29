@@ -5,7 +5,7 @@ import java.util.List;
 public class FindGreatestSubString {
     public static void main(String args[])
     {
-        String bigLineInput="abcxyabxlopabcdefgqwertabcd";
+        String bigLineInput="abcdeabca";
         System.out.println(lengthOfLongestSubstring(bigLineInput));
     }
 
