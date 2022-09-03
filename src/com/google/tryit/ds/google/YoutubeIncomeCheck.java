@@ -18,22 +18,20 @@ public static void main(String args[])
         for(int i=0;i<numberOfvideos;i++)
         {
             views[i]=x.nextInt();
-            System.out.println("views="+views[i]);
             likes[i]=x.nextInt();
-            System.out.println("likes="+likes[i]);
         }
-        for(int i=0;i<numberOfvideos;i++)
+        int totalLikes = Arrays.stream(likes).sum();
+        int totalviews = Arrays.stream(views).sum();
+        int minAmount = 0;
+        if(numberOfvideos>=3)
         {
-            if(numberOfvideos>=3 && views[i]>likes[i])
+            if(totalviews>totalLikes&& subscriber>=100 && totalLikes>100 && totalviews>=100)
             {
-                if(views[i]<=100 || likes[i]<=100)
-                {
-                    total100+=1*((views[i]));
-                }
-                else if(views[i]>100 || likes[i]>100)
-                {
-                    totalmore100+=5*(views[i]/50);
-                }
+                minAmount = 1;
+                int remainingview = totalviews-100;
+                int remainingSubscriber = subscriber - 100;
+                totalmore100=5*(remainingview/50);
+                System.out.println("totalmore100="+totalmore100);
             }
             else
             {
@@ -41,7 +39,7 @@ public static void main(String args[])
                 exit(1);
             }
         }
-        total=(totalmore100+total100)*74.80;
+        total=(totalmore100+minAmount)*74.80;
         //total=total*74.80;
         System.out.println(total);
 
