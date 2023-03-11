@@ -48,6 +48,6 @@ public class Employee {
 
     @Override
     public int hashCode() {
-        return Objects.hash(age, name, address);
+        return (int) age * name.hashCode() * address.hashCode();
     }
 }
