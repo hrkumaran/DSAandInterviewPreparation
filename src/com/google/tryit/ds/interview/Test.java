@@ -15,8 +15,8 @@ public class Test {
         employeeList.add(e);
         employeeList.add(e1);
         employeeList.add(e2);
-        employeeList.stream().forEach((c) -> System.out.println(c.age+""+c.address+""+c.name));
+        employeeList.stream().forEach((c) -> System.out.println("employeeList->"+c.age+":"+c.address+":"+c.name));
         List<Employee> ditinctemployeeList =employeeList.stream().distinct().collect(Collectors.toList());
-        ditinctemployeeList.stream().forEach((c) -> System.out.println(c.age+""+c.address+""+c.name));
+        ditinctemployeeList.stream().forEach((c) -> System.out.println("ditinctemployeeList->"+c.age+":"+c.address+":"+c.name));
     }
 }
