@@ -35,3 +35,4 @@ dr-xr-x---. 21 root root 4096 Apr  3 15:05 ..
 
 ####################################
 
+terraform apply --auto-approve
