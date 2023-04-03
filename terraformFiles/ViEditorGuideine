@@ -1,0 +1,5 @@
+Esc i ---> To go in Insert Mode
+Esc ---> To go in Command
+Esc :w  --> Only Save
+Esc :wq --> Save and Quit
+Esc :q  ---> Only quit
