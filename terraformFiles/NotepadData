@@ -337,7 +337,7 @@ resource "aws_instance" "web" {
 
   provisioner "remote-exec" {
     inline = [
-      "chmod  x /tmp/test.sh",
+      "chmod    x /tmp/test.sh",  #use chmod   plus then x /tmp/test.sh
       "/tmp/test.sh",
     ]
     connection {
@@ -352,6 +352,48 @@ resource "aws_instance" "web" {
 [root@minion aws_instance_prov]# terraform apply  ^C
 
 ###############################################
+
+provider.tf ====>
+
+
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "4.61.0"
+    }
+  }
+}
+
+provider "aws" {
+  region     = var.region
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+##############################################
+
+
+[root@minion aws_instance_count]# cat main.tf
+resource "aws_instance" "web" {
+  count 	= 3
+  ami           = var.ami
+  instance_type = var.instance_type
+  tags = { Name = "${var.tags.Name}-${count.index}" }
+}
+[root@minion aws_instance_count]# cat output.tf
+output "PublicIP" {
+  value = aws_instance.web[*].public_ip
+}
+[root@minion aws_instance_count]# terraform init   ^C
+[root@minion aws_instance_count]# terraform plan    ^C
+[root@minion aws_instance_count]#
+[root@minion aws_instance_count]# terraform apply    ^C
+
+
+#############################################
+
+
 
 
 
