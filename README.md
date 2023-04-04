@@ -36,3 +36,24 @@ dr-xr-x---. 21 root root 4096 Apr  3 15:05 ..
 ####################################
 
 terraform apply --auto-approve
+
+terraform init
+
+terraform validate
+
+terraform plan
+
+terraform apply
+
+terraform apply | tee myoutput.log
+
+cp -fr ../aws_instance/*.tf .
+cp -fr ../aws_instance/*.tf .
+
+ssh -i /root/.ssh/id_rsa ubuntu@52.66.237.181
+
+
+
+Reference
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
