@@ -6,11 +6,11 @@ variable "region" {
 
 variable "access_key" {
   description = "Default Access Key for AWS"
-  default     = "AKIATPWBFSSPDE6ERPUZ"
+  default     = "<<acees>>"
 }
 
 variable "secret_key" {
-  default = "iJ9VAULTtsp8xxP1/q6rQnHGb1gGJUzYlI6b6hxQ"
+  default     = "<<acees>>"
 }
 
 variable "ami" {

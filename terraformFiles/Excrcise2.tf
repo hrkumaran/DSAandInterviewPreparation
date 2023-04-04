@@ -25,8 +25,8 @@ version = "4.61.0"
 
 provider "aws" {
 region     = "ap-south-1"
-access_key = "AKIATPWSSPPSD7KHNH"
-secret_key = "QaJkQppXY4Vyon4dqbwtkO4Q8qfnalutNSapjc"
+access_key = "access_key"
+access_key = "access_key"
 }
 
 resource "aws_instance" "web" {
@@ -91,11 +91,11 @@ default = "ap-south-1"
 
 variable "access_key" {
 description = "Default Access Key for AWS"
-default = "AKIATPWBFSSPPSD7KHNH"
+default = "access_key"
 }
 
 variable "secret_key" {
-default  = "QaJkQppXY4Vyon8R4dqbwtkO4Q8qfnalutNSapjc"
+default  = "access_key"
 }
 
 variable "ami" {
