@@ -758,3 +758,134 @@ Deleted workspace "dev"!
 
 #################################################
 
+[root@minion aws_web]# cat web.sh
+#!/bin/bash
+sudo apt-get update
+sudo apt-get install -y apache2
+echo "<h1>Welcome to Terraform World!</h1>" | sudo tee /var/www/html/index.html
+sudo systemctl start apache2
+sudo systemctl enable apache2
+
+
+
+[root@minion aws_web]# cat provider.tf
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "4.61.0"
+    }
+  }
+}
+
+provider "aws" {
+  region     = var.region
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+
+
+[root@minion aws_web]# cat vars.tf
+variable "region" {
+  description = "Default Datacenter for AWS"
+  type = string
+  default = "ap-south-1"
+}
+
+variable "access_key" {
+  description = "Default Access Key for AWS"
+  default = "AKIATPWFSSPPSD7KHNH"
+}
+
+variable "secret_key" {
+  default  = "QaJkQppXY4Vyon8R4dbwtkO4Q8qfnalutNSapjc"
+}
+
+variable "ami" {
+  description = "AWS Instance AMI"
+  default = "ami-038face4e75b6a399"
+}
+
+variable "instance_type" {
+  description = "AWS Instance Size"
+  default = "t2.micro"
+}
+
+variable "name" {
+  description = "Instance name"
+  default = "sagar_web"
+}
+[root@minion aws_web]#
+
+
+
+[root@minion aws_web]# cat out.tf
+output "IP" {
+  value	= aws_instance.sagar_web.public_ip
+}
+
+output "DNS" {
+  value = aws_instance.sagar_web.public_dns
+}
+
+output "URL" {
+  value = "http://${aws_instance.sagar_web.public_dns} OR http://${aws_instance.sagar_web.public_ip}"
+}
+[root@minion aws_web]#
+
+
+
+[root@minion aws_web]# cat main.tf
+resource "aws_key_pair" "sagar_web_keypair" {
+  key_name   = "${var.name}_keypair"
+  public_key = file("~/.ssh/id_rsa.pub")
+}
+
+resource "aws_security_group" "sagar_web_sg" {
+  name = "${var.name}_sg"
+}
+
+resource "aws_instance" "sagar_web" {
+  ami           = var.ami
+  instance_type = var.instance_type
+  key_name = aws_key_pair.sagar_web_keypair.key_name
+  user_data = file("web.sh")
+  tags = {
+    Name = var.name
+  }
+  vpc_security_group_ids = [aws_security_group.sagar_web_sg.id]
+}
+
+resource "aws_security_group_rule" "allow_all_outbound" {
+  type              = "egress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"
+  security_group_id = aws_security_group.sagar_web_sg.id
+  cidr_blocks       = ["0.0.0.0/0"]
+}
+
+resource "aws_security_group_rule" "allow_ssh_inbound" {
+  type              = "ingress"
+  from_port         = "22"
+  to_port           = "22"
+  protocol          = "TCP"
+  security_group_id = aws_security_group.sagar_web_sg.id
+  cidr_blocks       = ["0.0.0.0/0"]
+}
+
+resource "aws_security_group_rule" "allow_http_inbound" {
+  type              = "ingress"
+  from_port         = "80"
+  to_port           = "80"
+  protocol          = "TCP"
+  security_group_id = aws_security_group.sagar_web_sg.id
+  cidr_blocks       = ["0.0.0.0/0"]
+}
+
+
+#################################################
+
+
+
