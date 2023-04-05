@@ -644,7 +644,6 @@ variable "secret_key" {
   default  = "QaJkQppXY4Vyon8R4dqbwtkO4Q8qfnalutNSapjc"
 }
 
-
 provider "aws" {
   region     = var.region
   access_key = var.access_key
@@ -667,4 +666,47 @@ dr-xr-x---. 34 root root 4096 Apr  5 12:50 ..
 [root@minion aws_import]#
 
 ####################################################
+
+[root@minion aws_import]# terraform show > abc.tf     ^C
+[root@minion aws_import]#
+[root@minion aws_import]# Removed resource block from main.tf    ^C
+[root@minion aws_import]#
+[root@minion aws_import]#
+[root@minion aws_import]# Removed unconfigurable entities from abc.tf    ^C
+[root@minion aws_import]#
+[root@minion aws_import]# terraform apply    ^C
+
+
+##################################################
+
+[root@minion ~]# mkdir time_depends/   ^C
+[root@minion ~]# cd time_depends/
+[root@minion time_depends]# cat main.tf
+resource "time_sleep" "wait_30_seconds" {
+  depends_on = [null_resource.previous]
+  create_duration = "30s"
+}
+
+resource "null_resource" "next" {
+  depends_on = [time_sleep.wait_30_seconds]
+}
+
+resource "null_resource" "previous" {}
+[root@minion time_depends]# terraform init   ^C
+[root@minion time_depends]# terraform plan    ^C
+[root@minion time_depends]# terraform apply   ^C
+
+
+###################################################
+
+
+[root@minion aws_instance]# terraform taint aws_instance.web    ^C
+[root@minion aws_instance]#
+[root@minion aws_instance]# ls -ltr terraform.tfstate       ^C
+[root@minion aws_instance]#
+[root@minion aws_instance]# terraform untaint aws_instance.web       ^C
+
+
+##################################################
+
 
