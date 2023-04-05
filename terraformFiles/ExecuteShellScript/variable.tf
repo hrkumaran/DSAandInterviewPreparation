@@ -23,7 +23,7 @@ variable "instance_type" {
 
 variable "tags" {
   type    = map(any)
-  default = { Name = "Sagar-web" }
+  default = { Name = "Kumarna-EC2" }
 }
 
 variable "mynumber" {
