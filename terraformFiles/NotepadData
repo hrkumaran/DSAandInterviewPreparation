@@ -620,3 +620,51 @@ output "MyPublicIP" {
 ###################################
 
 
+[root@minion ~]# mkdir aws_import    ^C
+[root@minion ~]# cd aws_import/
+[root@minion aws_import]# cat main.tf
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "4.61.0"
+    }
+  }
+}
+
+variable "region" {
+  default = "ap-south-1"
+}
+
+variable "access_key" {
+  default = "AKIATPWBFSSPPSD7KHNH"
+}
+
+variable "secret_key" {
+  default  = "QaJkQppXY4Vyon8R4dqbwtkO4Q8qfnalutNSapjc"
+}
+
+
+provider "aws" {
+  region     = var.region
+  access_key = var.access_key
+  secret_key = var.secret_key
+}
+
+resource "aws_instance" "sample" {
+}
+
+[root@minion aws_import]# terraform init   ^C
+[root@minion aws_import]# terraform import aws_instance.sample i-0a3dc0b9630bc581b   ^C
+[root@minion aws_import]# ls -lta
+total 20
+drwxr-xr-x.  3 root root   91 Apr  5 13:00 .
+-rw-r--r--.  1 root root 4443 Apr  5 12:55 terraform.tfstate
+-rw-r--r--.  1 root root 1406 Apr  5 12:54 .terraform.lock.hcl
+drwxr-xr-x.  3 root root   23 Apr  5 12:54 .terraform
+-rw-r--r--.  1 root root  453 Apr  5 12:53 main.tf
+dr-xr-x---. 34 root root 4096 Apr  5 12:50 ..
+[root@minion aws_import]#
+
+####################################################
+

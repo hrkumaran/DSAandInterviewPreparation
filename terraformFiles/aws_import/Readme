@@ -1,0 +1,11 @@
+[root@minion aws_import]# terraform init   ^C
+[root@minion aws_import]# terraform import aws_instance.sample i-0a3dc0b9630bc581b   ^C
+[root@minion aws_import]# ls -lta
+total 20
+drwxr-xr-x.  3 root root   91 Apr  5 13:00 .
+-rw-r--r--.  1 root root 4443 Apr  5 12:55 terraform.tfstate
+-rw-r--r--.  1 root root 1406 Apr  5 12:54 .terraform.lock.hcl
+drwxr-xr-x.  3 root root   23 Apr  5 12:54 .terraform
+-rw-r--r--.  1 root root  453 Apr  5 12:53 main.tf
+dr-xr-x---. 34 root root 4096 Apr  5 12:50 ..
+[root@minion aws_import]#
