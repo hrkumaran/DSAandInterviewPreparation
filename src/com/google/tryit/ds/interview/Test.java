@@ -17,6 +17,7 @@ public class Test {
         employeeList.add(e);
         employeeList.add(e1);
         employeeList.add(e2);
+        System.out.println("SIze - "+employeeList.size());
         employeeList.stream().forEach((c) -> System.out.println("employeeList->"+c.age+":"+c.address+":"+c.name));
         List<Employee> ditinctemployeeList =employeeList.stream().distinct().collect(Collectors.toList());
         ditinctemployeeList.stream().forEach((c) -> System.out.println("ditinctemployeeList->"+c.age+":"+c.address+":"+c.name));
@@ -24,8 +25,11 @@ public class Test {
         Set<Employee> employeeSet = new HashSet<Employee>();
 
         employeeSet.add(e);
+        System.out.println("SIze - "+employeeSet.size());
         employeeSet.add(e1);
+        System.out.println("SIze - "+employeeSet.size());
         employeeSet.add(e2);
+        System.out.println("SIze - "+employeeSet.size());
         employeeSet.stream().forEach((c) -> System.out.println("employeeSet->"+c.age+":"+c.address+":"+c.name));
         Set<Employee> ditinctemployeeSet =employeeSet.stream().distinct().collect(Collectors.toSet());
         ditinctemployeeSet.stream().forEach((c) -> System.out.println("ditinctemployeeSet->"+c.age+":"+c.address+":"+c.name));
