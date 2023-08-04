@@ -9,7 +9,6 @@ public class ReverseWithSingleString {
 
     public static void main(String args[])
     {
-        StringBuilder tempBuilder = new StringBuilder();
 
         String output="india is my country";
         char[] inputArray = output.toCharArray();
