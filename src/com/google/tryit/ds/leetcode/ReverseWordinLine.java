@@ -4,7 +4,6 @@ import com.google.tryit.ds.Stack;
 
 public class ReverseWordinLine {
 
-
     public static void main(String args[])
     {
         String singleLine="This is my first program to reverse a word in a line";
