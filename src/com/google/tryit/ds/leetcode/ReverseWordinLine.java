@@ -19,7 +19,6 @@ public class ReverseWordinLine {
         {
             reverseLine+=newStack.pop()+" ";
         }
-
         System.out.println("reversed Line="+reverseLine.trim());
 
     }
