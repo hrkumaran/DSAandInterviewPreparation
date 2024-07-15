@@ -1,6 +1,6 @@
 package com.google.tryit.macfeeSource;
 //Program to check whether a number is Armstrong or not
-import java.io.*;
+
 class Armstrong
 { public static void main(String ar[])
 {

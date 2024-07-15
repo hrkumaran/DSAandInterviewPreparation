@@ -1,7 +1,5 @@
 package com.google.tryit.ds.vmware;
 
-import java.util.ArrayList;
-import java.util.List;
 public class FindGreatestSubString {
     public static void main(String args[])
     {

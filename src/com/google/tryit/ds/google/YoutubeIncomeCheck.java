@@ -1,5 +1,7 @@
 package com.google.tryit.ds.google;
-import java.util.*;
+
+import java.util.Arrays;
+import java.util.Scanner;
 
 import static java.lang.System.exit;
 

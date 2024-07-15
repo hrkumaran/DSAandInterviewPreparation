@@ -1,7 +1,5 @@
 package com.google.tryit.ds.interview;
 
-import java.util.Objects;
-
 public class Employee {
 
     int age;

@@ -1,7 +1,5 @@
 package com.google.tryit;
 
-import java.util.HashMap;
-
 public class NumberOfPossibility {
 
 	public static void main(String[] args) {

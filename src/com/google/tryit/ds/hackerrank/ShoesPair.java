@@ -1,12 +1,9 @@
 package com.google.tryit.ds.hackerrank;
 
-import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.InputStreamReader;
-import java.util.*;
-import java.util.stream.Stream;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 class Result {
 

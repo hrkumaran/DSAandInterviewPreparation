@@ -1,9 +1,6 @@
 package com.google.tryit.ds.google;
 
-import com.google.tryit.ds.SinglyLinkedList;
-
 import java.util.Arrays;
-import java.util.OptionalInt;
 
 public class SumofSubSet {
 

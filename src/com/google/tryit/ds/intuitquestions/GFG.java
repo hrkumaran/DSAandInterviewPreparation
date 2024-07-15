@@ -1,7 +1,5 @@
 package com.google.tryit.ds.intuitquestions;
 
-import java.util.*;
-
 /* Link list node */
 class Node
 {

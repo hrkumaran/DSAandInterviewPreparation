@@ -1,6 +1,8 @@
 package com.google.tryit.macfeeSource;
 //Program to check the number is Palindrome
- import java.io.*;
+
+import java.io.DataInputStream;
+import java.io.IOException;
 	 class Palindrome { 
 		 public static void main(String ar[]) {
 			 int n=0,re=0,temp=0,q;

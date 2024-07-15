@@ -1,7 +1,6 @@
 package com.google.tryit.ds.hackerrank;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Solution1 {

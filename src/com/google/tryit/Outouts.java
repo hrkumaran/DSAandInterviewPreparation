@@ -1,9 +1,6 @@
 package com.google.tryit;
 
 import com.google.tryit.ds.DoublyLinkedList;
-import com.google.tryit.ds.Queue;
-import com.google.tryit.ds.SinglyLinkedList;
-import com.google.tryit.ds.Stack;
 
 public class Outouts {
 

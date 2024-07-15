@@ -5,7 +5,7 @@ public class ArmstrongNumber {
     public static void main(String[] args) {
         String givenNumber="888";
         int givenNum=Integer.parseInt(givenNumber);
-        int lastdigit = givenNum%10;
+        int lastDigit = givenNum%10;
         int firsttwodigit = givenNum/10;
         int seconddigit = firsttwodigit%10;
         int firstigit = firsttwodigit/10;
