@@ -9,7 +9,7 @@ public class ArmstrongNumber {
         int firsttwodigit = givenNum/10;
         int seconddigit = firsttwodigit%10;
         int firstigit = firsttwodigit/10;
-        int total = getTotalNumber(firstigit,seconddigit,lastdigit);
+        int total = getTotalNumber(firstigit,seconddigit,lastDigit);
         if(givenNum == total) {
             System.out.println("GiveNumber="+givenNum+" is a ArmStrong Number");
         }
