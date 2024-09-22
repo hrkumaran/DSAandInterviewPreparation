@@ -48,16 +48,8 @@ public class SinglyLinkedListInt {
         //rest = first;
 
         /* List has only one node */
-        //	if (rest == null)
-        //		return;
-
-        /* reverse the rest list and put the first element at the last */
-        //	reverseList(rest);
         first.next.next = first;
 
         first.next = null;
-
-        /* change the head pointer */
-        //	list.head = rest;
     }
 }

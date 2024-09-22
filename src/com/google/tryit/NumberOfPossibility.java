@@ -36,16 +36,9 @@ public class NumberOfPossibility {
 			currentOutput = String.valueOf(alphabet[i]);
 			int j = i % 10;
 			int k = i / 10;
-			currentOutput += String.valueOf(alphabet[k]) + String.valueOf(alphabet[j]);
-
-			;
-
+			currentOutput += alphabet[k] + alphabet[j];
 		}
 		return currentOutput;
 	}
 
-	/*
-	 * } inputObject.put("d", "1");inputObject.put("d", "1"); inputObject.put("d",
-	 * "1");
-	 */
 }

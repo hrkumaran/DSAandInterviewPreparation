@@ -33,25 +33,7 @@ class Result {
             }
             i++;
         }
-       /* for(int i=0;i<n;i++)
-        {
-            Set set=containMap.entrySet();//Converting to Set so that we can traverse
-            Iterator itr=set.iterator();
-            while(itr.hasNext()){
-                //Converting to Map.Entry so that we can get key and value separately
-                Map.Entry entry=(Map.Entry)itr.next();
-                System.out.println(entry.getKey()+" "+entry.getValue());
-            }
-            if(add(ar.get(i)));
-            {
-                pairCounter++;
-                if(pairCounter==2)
-                {
-                    totalCounter++;
-                    pairCounter=0;
-                }
-            }
-        }*/
+
         // Traversing through Map using for-each loop
         for (Map.Entry<Integer, Integer> me :
                 containMap.entrySet()) {

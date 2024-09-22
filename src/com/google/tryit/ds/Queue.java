@@ -3,7 +3,7 @@ package com.google.tryit.ds;
 public class Queue {
 
 	public final int MAX_SIZE = 21;
-	private Object data[] = new Object[MAX_SIZE];
+	private final Object data[] = new Object[MAX_SIZE];
 	private int counter = -1;
     private int dequeueCounter = 1;
 	public int enqueue(String dataComing) {

@@ -15,21 +15,21 @@ public class DoublyLinkedList {
 	Node head;
 	
 
-	public static DoublyLinkedList insertNode(DoublyLinkedList list, String data) {
-		Node newNode = new Node(data);
-		if (list.head == null) {
-			list.head = newNode;
-		} else if (list.head != null) {
-			list.head.prev = newNode;
-			Node last = list.head;
-			while (last.next != null) {
-				last = last.next;
-			}
-			list.head = last;
-			last.next = newNode;
-		}
-		return list;
-	}
+//	public static DoublyLinkedList insertNode(DoublyLinkedList list, String data) {
+//		Node newNode = new Node(data);
+//		if (list.head == null) {
+//			list.head = newNode;
+//		} else if (list.head != null) {
+//			list.head.prev = newNode;
+//			Node last = list.head;
+//			while (last.next != null) {
+//				last = last.next;
+//			}
+//			list.head = last;
+//			last.next = newNode;
+//		}
+//		return list;
+//	}
 
 	public static void printNode(DoublyLinkedList list) {
 		while (list.head != null) {

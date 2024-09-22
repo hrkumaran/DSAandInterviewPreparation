@@ -21,13 +21,6 @@ public class Solution1 {
             }
         }
         scan.close();
-      /*  for (Map.Entry<Integer, Integer> me :
-                colors.entrySet()) {
-
-            // Printing keys
-            System.out.print(me.getKey() + ":");
-            System.out.println(me.getValue());
-        }*/
         // Count and print the number of pairs
         int pairs = 0;
         for(Integer frequency : colors.values()) {

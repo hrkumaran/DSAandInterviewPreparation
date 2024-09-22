@@ -10,11 +10,8 @@ public class ReverseLinkedList {
         SinglyLinkedList llist = new SinglyLinkedList();
         int llistCount = 5;
             for (int i = 0; i < llistCount; i++) {
-                int llistItem =i;
-                System.out.println(llistItem);
-                llist = llist.insertNode(llist, String.valueOf(llistItem));
+                llist = llist.insertNode(llist, String.valueOf(i));
             }
-       // llist.reverseList(llist);
         llist.printNode(llist);
     }
 }
