@@ -1,6 +1,10 @@
 package com.google.tryit.ds.leetcode;
 
-public class mergeKLists {
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+public class MergeKLists {
     public ListNode mergeKLists(ListNode[] lists) {
         if(lists==null || lists.length==0) return null;
 
@@ -49,6 +53,34 @@ public class mergeKLists {
 
         return temporaryNode.next;
 
+    }
 
+    public static void main(String[] args) {
+        MergeKLists mergeKLists = new MergeKLists();
+        ListNode l1 = addListNode(1,8,4);
+        printListNode(l1);
+        ListNode l2 = addListNode(1,3,4);
+        printListNode(l2);
+        ListNode[] listNodes = new ListNode[2];
+        listNodes[0]=l1;
+        listNodes[1]=l2;
+        ListNode l3= mergeKLists.mergeKLists(listNodes);
+        printListNode(l3);
+    }
+
+    private static ListNode addListNode(int i, int i1, int i2) {
+        ListNode newListNode = new ListNode(i);
+        newListNode.next =  new ListNode(i1);
+        newListNode.next.next =  new ListNode(i2);
+        return newListNode;
+    }
+    private static void printListNode(ListNode newListNode) {
+        System.out.print("[");
+        while(newListNode!=null)
+        {
+            System.out.print(newListNode.val+",");
+            newListNode = newListNode.next;
+        }
+        System.out.print("]");
     }
 }
