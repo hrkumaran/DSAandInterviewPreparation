@@ -40,7 +40,7 @@ public class MiddleoftheLinkedList {
         int middleCounterValue=0;
         if((counter%2)==0)
         {
-            middleCounterValue = counter/2;
+            middleCounterValue = counter/2+1;
         }
         else
         {
