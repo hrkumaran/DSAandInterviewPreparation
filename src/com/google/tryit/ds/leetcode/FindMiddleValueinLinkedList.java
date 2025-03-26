@@ -2,7 +2,6 @@ package com.google.tryit.ds.leetcode;
 
 public class FindMiddleValueinLinkedList {
 
-
     public static void main(String[] args) {
         FindMiddleValueinLinkedList findMiddleValueinLinkedList = new FindMiddleValueinLinkedList();
         ListNode inputNode = findMiddleValueinLinkedList.addListNode(1,2,3,4,5);
