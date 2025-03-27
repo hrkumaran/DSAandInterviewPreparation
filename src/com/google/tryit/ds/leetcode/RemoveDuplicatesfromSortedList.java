@@ -4,25 +4,19 @@ public class RemoveDuplicatesfromSortedList {
 
     public ListNode removeDuplicatesfromSortedList(ListNode head) {
         if (head == null ) return null;
-        ListNode originalNode = new ListNode(0);;
         ListNode skipNode = head;
         while(skipNode!=null && skipNode.next!=null)
         {
-            if(skipNode.val == skipNode.next.val)
+            if(skipNode.next.val == skipNode.val)
             {
-                skipNode = skipNode.next.next;
+                skipNode.next = skipNode.next.next;
             }
             else
             {
-                System.out.println(skipNode.val);
-                originalNode = new ListNode(skipNode.val);
-                originalNode.next = originalNode;
-                printListNode(originalNode);
+                skipNode = skipNode.next;
             }
-            skipNode = skipNode.next;
-
         }
-        return originalNode;
+        return head;
     }
 
     public static void main(String[] args) {

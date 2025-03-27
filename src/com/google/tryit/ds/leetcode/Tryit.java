@@ -14,7 +14,8 @@ public class Tryit {
     }
 
     private ListNode getValues(ListNode inputNode) {
-        ListNode listNode = null;
+
+        ListNode listNode = inputNode;
         while(inputNode!=null)
         {
             if(listNode ==null)
@@ -28,12 +29,9 @@ public class Tryit {
                     listNode = listNode.next;
                 }
                 listNode.next = new ListNode(inputNode.val);
-                printListNode(listNode);
+     //           printListNode(listNode);
 
             }
-
-      //      printListNode(inputNode);
-          //  listNode = listNode.next;
             inputNode = inputNode.next;
         }
         return listNode;

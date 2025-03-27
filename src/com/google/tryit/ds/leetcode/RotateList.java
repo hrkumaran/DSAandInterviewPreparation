@@ -1,14 +1,6 @@
 package com.google.tryit.ds.leetcode;
 
 public class RotateList {
-    public static void main(String[] args) {
-        RotateList rotateList = new RotateList();
-        ListNode l1 = addListNode(1,2,3,4,5);
-        printListNode(l1);
-        int k=2;
-        ListNode l3= rotateList.rotateRight(l1,k);
-        printListNode(l3);
-    }
 
     private static ListNode addListNode(int i, int i1, int i2, int i3, int i4) {
         ListNode newListNode = new ListNode(i);
@@ -31,10 +23,9 @@ public class RotateList {
     public ListNode rotateRight(ListNode head, int k) {
         if (head == null || k < 0) return null;
         int counter = 0;
-        ListNode temporaryNode = new ListNode();
-        temporaryNode.next = head;
-        ListNode l3 = temporaryNode;
-        ListNode outputNode = new ListNode();
+        ListNode outputNode = head;
+        ListNode temporaryNode = head;
+        ListNode l3 = head;
         while (l3.next != null) {
             l3 = l3.next;
             counter++;
@@ -51,5 +42,26 @@ public class RotateList {
             outputNode = outputNode.next;
         }
         return outputNode;
+    }
+
+    public static void main(String[] args) {
+        RotateList rotateList = new RotateList();
+        ListNode inputNode = rotateList.addListNode(1,2,3,4,5);
+        int k=2;
+        rotateList.printListNode(inputNode);
+        ListNode l1= rotateList.rotateRight(inputNode,k);
+        rotateList.printListNode(l1);
+        k=3;
+        inputNode = rotateList.addListNodeTwo(1,2,3,4);
+        ListNode l3= rotateList.rotateRight(inputNode,k);
+        rotateList.printListNode(l3);
+    }
+
+    private static ListNode addListNodeTwo(int i, int i1, int i2, int i3) {
+        ListNode newListNode = new ListNode(i);
+        newListNode.next =  new ListNode(i1);
+        newListNode.next.next =  new ListNode(i2);
+        newListNode.next.next.next =  new ListNode(i3);
+        return newListNode;
     }
 }
