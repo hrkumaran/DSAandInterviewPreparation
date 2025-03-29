@@ -9,7 +9,12 @@ public class RemoveDuplicatesfromSortedList {
         {
             if(skipNode.next.val == skipNode.val)
             {
-                skipNode.next = skipNode.next.next;
+               // skipNode.next = skipNode.next.next;
+                int skippable = skipNode.val;
+                while (skipNode.next!=null && skippable ==  skipNode.next.val )
+                {
+                    skipNode.next = skipNode.next.next;
+                }
             }
             else
             {

@@ -18,27 +18,31 @@ public class RemoveDuplicatesfromSortedListII {
             newListNode = newListNode.next;
         }
         System.out.print("]");
+        System.out.println();
     }
 
     public ListNode removeDuplicatesfromSortedList(ListNode head) {
         if (head == null ) return null;
-        ListNode originalNode = head;
-        ListNode skipNode = head;
-        while(skipNode!=null && skipNode.next!=null)
+        ListNode skipNode1 = new ListNode(0);
+        skipNode1.next = head;
+        ListNode skipNode = skipNode1;
+        while(skipNode.next!=null && skipNode.next.next!=null)
         {
-            if(skipNode.val == skipNode.next.val)
+            if(skipNode.next.val == skipNode.next.next.val)
             {
-                originalNode = originalNode.next;
-                skipNode = skipNode.next.next;
+              int skippable = skipNode.next.val;
+              while (skipNode.next!=null && skippable ==  skipNode.next.val )
+                {
+                    skipNode.next = skipNode.next.next;
+                }
             }
             else
             {
-                originalNode = originalNode.next;
-                skipNode = skipNode.next;
+                  skipNode = skipNode.next;
             }
-
         }
-        return originalNode;
+  //      printListNode(skippableNode);
+        return skipNode1.next;
     }
 
     public static void main(String[] args) {
@@ -48,6 +52,7 @@ public class RemoveDuplicatesfromSortedListII {
         ListNode l1= removeDuplicatesfromSortedListII.removeDuplicatesfromSortedList(inputNode);
         removeDuplicatesfromSortedListII.printListNode(l1);
         inputNode = removeDuplicatesfromSortedListII.addListNode(1,1,1,2,3);
+        removeDuplicatesfromSortedListII.printListNode(inputNode);
         ListNode l3= removeDuplicatesfromSortedListII.removeDuplicatesfromSortedList(inputNode);
         removeDuplicatesfromSortedListII.printListNode(l3);
     }
