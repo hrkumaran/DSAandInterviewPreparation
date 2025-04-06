@@ -34,11 +34,11 @@ public class MiddleoftheLinkedListApporach2 {
         while(outputNode!=null && outputNode.next!=null)
         {
             temporaryNode = temporaryNode.next;
-            System.out.print("temporaryNode=");
-            printListNode(temporaryNode);
+        //    System.out.print("temporaryNode=");
+       //     printListNode(temporaryNode);
             outputNode = outputNode.next.next;
-            System.out.print("outputNode=");
-            printListNode(outputNode);
+       //     System.out.print("outputNode=");
+      //      printListNode(outputNode);
         }
 
         return temporaryNode;
