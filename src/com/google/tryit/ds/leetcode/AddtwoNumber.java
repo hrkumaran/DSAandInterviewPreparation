@@ -1,6 +1,6 @@
 package com.google.tryit.ds.leetcode;
 
-class AddTwoNumber {
+class AddtwoNumber {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode temporaryNode = new ListNode(0);
         ListNode l3 = temporaryNode;
@@ -38,7 +38,7 @@ class AddTwoNumber {
     }
 
     public static void main(String[] args) {
-        AddTwoNumber addTwoNumbers = new AddTwoNumber();
+        AddtwoNumber addTwoNumbers = new AddtwoNumber();
         ListNode l1 = addListNode(1,8,4);
         printListNode(l1);
         ListNode l2 = addListNode(1,3,4);
