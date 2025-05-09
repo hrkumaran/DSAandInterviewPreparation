@@ -8,6 +8,24 @@ public class FindMiddleValueinLinkedList {
         findMiddleValueinLinkedList.printListNode(inputNode);
         int middleValue = findMiddleValueinLinkedList.findMidValueinLinkedList(inputNode);
         System.out.println("MiddleValue="+middleValue);
+        ListNode inputNodeTwo = findMiddleValueinLinkedList.addListNode(2,3,4,5,6);
+        findMiddleValueinLinkedList.printListNode(inputNodeTwo);
+        middleValue = findMiddleValueinLinkedList.findMidValueinLinkedList(inputNodeTwo);
+        System.out.println("MiddleValue="+middleValue);
+        inputNodeTwo = findMiddleValueinLinkedList.addListNodeTwo(2,3,4,5,6,7);
+        findMiddleValueinLinkedList.printListNode(inputNodeTwo);
+        middleValue = findMiddleValueinLinkedList.findMidValueinLinkedList(inputNodeTwo);
+        System.out.println("MiddleValue="+middleValue);
+    }
+
+    private ListNode addListNodeTwo(int i, int i1, int i2, int i3, int i4, int i5) {
+        ListNode newListNode = new ListNode(i);
+        newListNode.next =  new ListNode(i1);
+        newListNode.next.next =  new ListNode(i2);
+        newListNode.next.next.next =  new ListNode(i3);
+        newListNode.next.next.next.next =  new ListNode(i4);
+        newListNode.next.next.next.next.next =  new ListNode(i5);
+        return newListNode;
     }
 
     private int findMidValueinLinkedList(ListNode inputNode) {
