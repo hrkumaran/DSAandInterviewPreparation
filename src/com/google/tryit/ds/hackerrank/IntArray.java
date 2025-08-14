@@ -4,6 +4,7 @@ public class IntArray {
 
     public static void main(String[] args) {
         int[] arr = {1,10,2,25,10,112,111,100,102,12,123,33,13,57,47,89,35,67,8,9,0};
+
         int[] output = new int[10];
         System.out.println("Array length: " + arr.length);
         System.out.print("Array elements: ");
