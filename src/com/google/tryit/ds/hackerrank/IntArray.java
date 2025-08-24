@@ -14,6 +14,7 @@ public class IntArray {
                 j++;
             }
         }
+
         for (int num : output) {
             System.out.print(num + " ");
         }
