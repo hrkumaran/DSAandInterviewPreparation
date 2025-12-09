@@ -10,11 +10,14 @@ public class FindVowelOptimizedOne {
 
         Pattern pattern = Pattern.compile(("[aeiouAEIOU]"));
         Matcher matcher = pattern.matcher(input);
+        System.out.println("Vowels found in \"" + input + "\":");
         int vowelCount=0;
         while(matcher.find())
         {
             vowelCount++;
+            System.out.print(matcher.group()+",");
         }
+        System.out.println();
         System.out.println("Vowel Count: "+vowelCount);
     }
 }
