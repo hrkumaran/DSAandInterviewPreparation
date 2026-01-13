@@ -15,32 +15,24 @@ public class SortPersons {
 
         public static void main(String[] args) {
 
-            Person p1 = new Person("Emp1",50);
-            Person p2 = new Person("Emp2",51);
-            Person p5 = new Person("Emp3",52);
-            Person p4 = new Person("Emp4",53);
-            Person p3 = new Person("Emp5",54);
-
             int size=5;
-            Person[] person = new Person[size];
-            person[0] = p1;
-            person[1] = p2;
-            person[2] = p3;
-            person[3] = p4;
-            person[4] = p5;
+            Person[] person = { new Person("Emp1",50),new Person("Emp2",51),
+                    new Person("Emp3",52),new Person("Emp4",53),
+                    new Person("Emp5",54) };
 
             for(int i=0;i<size;i++)
             {
-                Person p = (Person)person[i];
+                Person p = person[i];
                 System.out.println("Results="+p.getName()+" Age="+p.getAge());
             }
 
-            Arrays.sort(person, Comparator.comparing(Person::getName).reversed());
+            Arrays.sort(person,Comparator.comparing(Person::getName));
             for(int i=0;i<size;i++)
             {
-                Person p = (Person)person[i];
+                Person p = person[i];
                 System.out.println("Results="+p.getName()+" Age="+p.getAge());
             }
+
 
         }
     }
